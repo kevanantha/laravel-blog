@@ -29,16 +29,18 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                      Laravel Blog
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
+                     <ul class="nav navbar-nav">
+                        <li class="{{ Request::is('/') ? "active" : "" }}"><a href="/">Home</a></li>
+                        <li class="{{ Request::is('blog') ? "active" : "" }}"><a href="/blog">Blog</a></li>
+                        <li class="{{ Request::is('about') ? "active" : "" }}"><a href="/about">About</a></lic>
+                        <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="/contact">Contact</a></li>
+                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -52,6 +54,10 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                    <li><a href="{{ route('posts.index') }}">Posts</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li role="separator" class="divider"></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

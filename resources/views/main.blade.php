@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
 
     @include('partials._head')
-    <body>
+<body>
+    <div id="app">
 
-        {{ Auth::check() ? "Logged in" : "Logged out" }}
+        {{--{{ Auth::check() ? "Logged in" : "Logged out" }}--}}
 
         @include('partials._nav')
 
@@ -18,8 +19,9 @@
         <!-- end of .container -->
 
         @include('partials._scripts')
+    </div>
 
     @yield('scripts')
-    </body>
+</body>
 
 </html>

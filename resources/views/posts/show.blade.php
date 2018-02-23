@@ -13,7 +13,7 @@
       <div class="well">
         <dl class="dl-horizontal">
           <label>Url Slug:</label>
-          <p><a href="/blog/{{ $post->slug }}">{{ url('blog/', $post->slug) }}</a></p>
+          <p><a href="/blog/{{ $post->slug }}">{{ url('blog', $post->slug) }}</a></p>
         </dl>
         <dl class="dl-horizontal">
           <label>Created At:</label>

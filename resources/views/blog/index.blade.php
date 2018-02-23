@@ -16,7 +16,7 @@
       <h5>Published: {{ date('M j, Y', strtotime($post->created_at)) }}</h5>
 
       <p>{{ str_limit($post->body, 250) }}</p>
-      <a href="{{ route('blog.single', $post->id) }}" class="btn btn-primary">Read More</a>
+      <a href="{{ route('blog.single', $post->slug) }}" class="btn btn-primary">Read More</a>
     </div>
   </div>
   <hr>
