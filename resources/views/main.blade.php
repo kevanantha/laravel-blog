@@ -5,8 +5,6 @@
 <body>
     <div id="app">
 
-        {{--{{ Auth::check() ? "Logged in" : "Logged out" }}--}}
-
         @include('partials._nav')
 
         <div class="container">

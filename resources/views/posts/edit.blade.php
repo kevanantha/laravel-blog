@@ -13,6 +13,11 @@
       {{ Form::label('slug', 'Slug:', ['style' => 'margin-top:20px;']) }}
       {{ Form::text('slug', null, ['class' => 'form-control']) }}
 
+      {{ Form::label('category_id', 'Category:', ['style' => 'margin-top: 20px;']) }}
+
+      {{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
+
+
       {{ Form::label('body', "Body:", ['style' => 'resize:none; margin-top:20px;']) }}
       {{ Form::textarea('body', null, ['class' => 'form-control', 'rows' => '10', 'style' => 'resize:none;']) }}
 
@@ -23,6 +28,10 @@
         <dl class="dl-horizontal">
           <label>Url Slug:</label>
           <p><a href="{{ url($post->slug)}}">{{ url($post->slug) }}</a></p>
+        </dl>
+        <dl class="dl-horizontal">
+          <label>Category:</label>
+          <p>{{ $post->category->name }}</p>
         </dl>
         <dl class="dl-horizontal">
           <label>Created At:</label>

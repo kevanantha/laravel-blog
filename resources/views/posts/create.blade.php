@@ -18,6 +18,13 @@
         {{ Form::label('slug', 'Slug:', ['style' => 'margin-top: 20px;']) }}
         {{ Form::text('slug', null, array('class' => 'form-control', 'required' => '', 'minlength' => '5', 'maxlength' => '255')) }}
 
+        {{ Form::label('category_id', 'Category:', ['style' => 'margin-top: 20px;']) }}
+        <select name="category_id" id="" class="form-control">
+          @foreach ($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+          @endforeach
+        </select>
+
         {{ Form::label('body', "Post Body:", array('style' => 'margin-top: 20px;')) }}
         {{ Form::textarea('body', null, array('class' => 'form-control')) }}
 
