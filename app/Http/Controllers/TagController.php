@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
+use App\Tag;
 use Session;
 
-class CategoryController extends Controller
+class TagController extends Controller
 {
-
     public function __construct() {
       $this->middleware('auth');
     }
@@ -20,12 +19,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-      // Display a view of all of our categories
-      $categories = Category::all();
+      $tags = Tag::all();
 
-      return view('categories.index')->withCategories($categories);
-      // it will also have a form to create category
-
+      return view('tags.index')->withTags($tags);
     }
 
     /**
@@ -46,19 +42,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-      // Save a a new category and then redirect back to index
       $this->validate($request, array(
-        'name' => 'required|max:255',
+        'name' => 'required|max:255'
       ));
 
-      $category = new Category;
+      $tag = new Tag;
 
-      $category->name = $request->name;
-      $category->save();
+      $tag->name = $request->name;
+      $tag->save();
 
-      Session::flash('success', 'New Category has been Created!');
+      Session::flash('success', 'New Tag was successfully created!');
 
-      return redirect()->route('categories.index');
+      return redirect()->route('tags.index');
     }
 
     /**
@@ -69,7 +64,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-      //
+        //
     }
 
     /**
@@ -80,7 +75,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-      //
+        //
     }
 
     /**
@@ -92,7 +87,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-      //
+        //
     }
 
     /**
@@ -103,6 +98,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-      //
+        //
     }
 }

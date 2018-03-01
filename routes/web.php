@@ -24,6 +24,9 @@ Route::get('blog', ['uses' => 'BlogController@getIndex', 'as' => 'blog.index']);
 // Categories
 Route::resource('categories', 'CategoryController', ['except' => ['create'] ]);
 
+// Tags
+Route::resource('tags', 'TagController', ['except' => ['create'] ]);
+
 // Auth
 Auth::routes();
 

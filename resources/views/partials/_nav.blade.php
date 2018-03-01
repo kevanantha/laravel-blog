@@ -40,8 +40,7 @@
             <ul class="dropdown-menu">
               <li><a href="{{ route('posts.index') }}">Posts</a></li>
               <li><a href="{{ route('categories.index') }}">Category</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
+              <li><a href="{{ route('tags.index') }}">Tag</a></li>
               <li role="separator" class="divider"></li>
               <li>
                 <a href="{{ route('logout') }}"
