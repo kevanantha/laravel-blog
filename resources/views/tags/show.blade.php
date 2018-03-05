@@ -8,11 +8,10 @@
       <h1>{{ $tag->name }} Tag <small>Has {{ $tag->posts->count() }} Posts </small></h1>
     </div>
     <div class="col-md-2 col-md-offset-2">
-      <a href="" class="btn btn-primary pull-right btn-block" style="margin-top: 20px;">Edit</a>
+      <a href="{{ route('tags.edit', $tag->id) }}" class="btn btn-primary pull-right btn-block" style="margin-top: 20px;">Edit</a>
     </div>
   </div>
 
- {{-- // TODO understand this!--}}
   <div class="row">
     <div class="col-md-12">
       <table class="table">
@@ -29,12 +28,13 @@
         @foreach($tag->posts as $post)
         <tr>
           <th>{{ $post->id }}</th>
-          <th>{{ $post->title }}</th>
-          <th>
+          <td>{{ $post->title }}</td>
+          <td>
             @foreach($post->tags as $tag)
               <span class="label label-default">{{ $tag->name }}</span>
             @endforeach
-          </th>
+          </td>
+          <td><a href="{{ route('posts.show', $post->id) }}" class="btn btn-default btn-sm">View</a></td>
         </tr>
         @endforeach
         </tbody>
