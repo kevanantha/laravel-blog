@@ -14,6 +14,17 @@
   </div>
 
   <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      @foreach($post->comments as $comment)
+        <div>
+          <p><strong>Name:</strong> {{ $comment->name }} </p>
+          <p><strong>Comment:<br></strong> {{ $comment->comment }} </p><hr>
+        </div>
+      @endforeach
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-8 col-md-offset-2" style="margin-top: 20px;">
       {{ Form::open(['route' => ['comments.store', $post->id], 'method' => 'POST']) }}
       <div class="row">
