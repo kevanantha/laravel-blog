@@ -19,11 +19,14 @@ Route::post('contact', 'PagesController@postContact');
 
 // Posts
 Route::resource('posts', 'PostController');
-Route::get('blog/{slug}', ['as' =>'blog.single', 'uses' => 'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
+Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
 Route::get('blog', ['uses' => 'BlogController@getIndex', 'as' => 'blog.index']);
 
 // Categories
 Route::resource('categories', 'CategoryController', ['except' => ['create'] ]);
+
+// Comments
+Route::post('comments/{post_id}', ['uses' => 'CommentsController@store', 'as' => 'comments.store']);
 
 // Tags
 Route::resource('tags', 'TagController', ['except' => ['create'] ]);
